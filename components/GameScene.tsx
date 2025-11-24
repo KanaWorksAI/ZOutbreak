@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Stars, Instance, Instances } from '@react-three/drei';
@@ -28,7 +27,7 @@ const WaveManager = () => {
         { count: 300, rate: 200, types: ['normal', 'fast', 'tank', 'boss'] },
     ];
 
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         if (status !== GameStatus.PLAYING) return;
 
         const currentLevelConfig = levels[Math.min(level - 1, levels.length - 1)];

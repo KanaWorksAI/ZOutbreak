@@ -1,7 +1,5 @@
-
 import { create } from 'zustand';
 import { EnemyConfig, GameStatus } from './types';
-import { Vector3 } from 'three';
 import { audioManager } from './audioSystem';
 
 export interface CoinDrop {

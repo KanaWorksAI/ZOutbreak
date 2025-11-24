@@ -1,5 +1,4 @@
-
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Hud, OrthographicCamera } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useGameStore } from '../store';

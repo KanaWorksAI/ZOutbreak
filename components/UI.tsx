@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { useGameStore } from '../store';
 import { audioManager } from '../audioSystem';
 import { GameStatus } from '../types';

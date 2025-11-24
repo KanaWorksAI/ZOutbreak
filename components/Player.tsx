@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo, useImperativeHandle, forwardRef } from 'react';
+import { useRef, useState, useEffect, useMemo, useImperativeHandle, forwardRef } from 'react';
 import { useThree, useFrame } from '@react-three/fiber';
 import { PointerLockControls, Instance, Instances } from '@react-three/drei';
 import * as THREE from 'three';
@@ -19,7 +19,7 @@ const MuzzleParticles = ({ firing }: { firing: boolean }) => {
   }, []);
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
       if (!meshRef.current) return;
 
       if (firing) {
@@ -71,7 +71,7 @@ const MuzzleParticles = ({ firing }: { firing: boolean }) => {
 };
 
 // Blood Particle System - Enhanced for Spray Effect
-const BloodParticles = forwardRef((props, ref) => {
+const BloodParticles = forwardRef((_props, ref) => {
     // Significantly increased pool size to guarantee visibility during rapid fire
     const count = 600; 
     const meshRef = useRef<THREE.InstancedMesh>(null);
@@ -111,7 +111,7 @@ const BloodParticles = forwardRef((props, ref) => {
         }
     }));
 
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         if(!meshRef.current) return;
 
         let activeCount = 0;
