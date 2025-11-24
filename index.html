@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Z-Outbreak 3D</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body, html { margin: 0; padding: 0; overflow: hidden; background-color: #000; touch-action: none; }
+      #root { width: 100vw; height: 100vh; }
+      
+      /* Standard Crosshair */
+      .crosshair {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 10;
+      }
+      .crosshair::before, .crosshair::after {
+        content: '';
+        position: absolute;
+        background-color: rgba(0, 255, 0, 0.8);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+      }
+      /* Horizontal line */
+      .crosshair::before {
+        top: 50%;
+        left: -12px;
+        width: 24px;
+        height: 2px;
+        margin-top: -1px;
+      }
+      /* Vertical line */
+      .crosshair::after {
+        left: 50%;
+        top: -12px;
+        height: 24px;
+        width: 2px;
+        margin-left: -1px;
+      }
+      
+      /* Hit marker animation */
+      @keyframes hit-marker {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(2); opacity: 0; }
+      }
+      .hit-marker {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        border: 2px solid red;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: hit-marker 0.2s ease-out forwards;
+        z-index: 11;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.8",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "three": "https://aistudiocdn.com/three@^0.181.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
